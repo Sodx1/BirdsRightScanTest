@@ -1,0 +1,308 @@
+{
+    "ClientConfiguration": {
+        "ConfigurationName": "Birds",
+        "ConfigurationDescription": "Разработка для Райт Скан",
+        "ConfigurationVersion": "0.0.1",
+        "Processes": [
+            {
+                "type": "Process",
+                "ProcessName": "Птицы",
+                "PlanFactHeader": "План-факт",
+                "DefineOnBackPressed": false,
+                "hidden": false,
+                "login_screen": false,
+                "SC": false,
+                "Operations": [
+                    {
+                        "type": "Operation",
+                        "Name": "Cписок наших птиц",
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": false,
+                        "handleKeyUp": false,
+                        "noConfirmation": true,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "send_when_opened": false,
+                        "send_after_opened": false,
+                        "onlineOnInput": false,
+                        "DefOnlineOnCreate": "",
+                        "DefOnlineOnInput": "",
+                        "DefOnCreate": "",
+                        "DefOnInput": "",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "Elements": [
+                                    {
+                                        "type": "CardsLayout",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@cardsbirds",
+                                        "Variable": ""
+                                    }
+                                ],
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": "",
+                                "orientation": "",
+                                "weight": "0"
+                            },
+                            {
+                                "Value": "plus",
+                                "Variable": "btn_add_bird",
+                                "type": "fab"
+                            }
+                        ],
+                        "onlineOnAfterStart": false,
+                        "Handlers": [
+                            {
+                                "event": "onStart",
+                                "action": "run",
+                                "type": "python",
+                                "method": "birds_list",
+                                "postExecute": ""
+                            },
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "show_add_bird_screen",
+                                "postExecute": "",
+                                "listener": "btn_add_bird"
+                            },
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "show_bird_screen",
+                                "postExecute": "",
+                                "listener": "CardsClick"
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Добавление птицы",
+                        "type": "Operation",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Добавьте птицу",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Введите название птицы",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "EditTextText",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@bird_name",
+                                        "Variable": "bird_name"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Цвет птицы",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "EditTextText",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@bird_color",
+                                        "Variable": "bird_color"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Изображение",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "Picture",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@photo",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "Button",
+                                        "height": "wrap_content",
+                                        "width": "wrap_content",
+                                        "weight": "0",
+                                        "Value": "Добавить",
+                                        "Variable": "btn_create_bird"
+                                    }
+                                ],
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": ""
+                            },
+                            {
+                                "Value": "picture",
+                                "Variable": "photo",
+                                "type": "photo"
+                            },
+                            {
+                                "Value": "picture",
+                                "Variable": "photo",
+                                "type": "photoGallery"
+                            }
+                        ],
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": false,
+                        "handleKeyUp": false,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "onlineOnAfterStart": false,
+                        "onlineOnInput": false,
+                        "Handlers": [
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "create_bird",
+                                "postExecute": "",
+                                "listener": "btn_create_bird"
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Птица",
+                        "type": "Operation",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Картинка",
+                                        "Variable": "",
+                                        "TextSize": "18"
+                                    },
+                                    {
+                                        "type": "Picture",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@bird_picture",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Название птицы",
+                                        "Variable": "",
+                                        "TextColor": "",
+                                        "TextSize": "18"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@bird_name",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Цвет перьев",
+                                        "Variable": "",
+                                        "TextSize": "18"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@bird_color",
+                                        "Variable": ""
+                                    }
+                                ],
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": ""
+                            }
+                        ],
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": false,
+                        "handleKeyUp": false,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "onlineOnAfterStart": false,
+                        "onlineOnInput": false,
+                        "Handlers": [],
+                        "noConfirmation": true
+                    }
+                ]
+            }
+        ],
+        "ConfigurationSettings": {
+            "uid": "5b37a6b8bbc444f8ba5283c687d37539"
+        },
+        "ConfigurationTags": "Py,off-line",
+        "arch2": true,
+        "PyHandlers": "aW1wb3J0IGRhdGV0aW1lCmltcG9ydCBqc29uCmZyb20gZGIgaW1wb3J0IERCCmZyb20gaGFzaE1hcCBpbXBvcnQgaGFzaE1hcApmcm9tIHJ1LnRyYXZlbGZvb2Quc2ltcGxlX3VpIGltcG9ydCBOb1NRTCBhcyBub0NsYXNzCgpkYl9hbGxfYmlyZHM6IERCID0gbm9DbGFzcygiYmlyZHMiKQoKI9Cf0YDQvtGG0LXRgdGBICLQn9GC0LjRhtGLIiAKI9Ct0LrRgNCw0L3RiyAKZGVmIGJpcmRzX2xpc3QoaGFzaE1hcDogaGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpOgogICAgIiIiCiAgICDQrdC60YDQsNC9ICLQn9GC0LjRhtGLIgogICAgIiIiCiAgICAjaHR0cHM6Ly91aXR4dC5yZWFkdGhlZG9jcy5pby9ydS9sYXRlc3QvY29tbW9uX2Z1bmN0aW9ucy5odG1sCiAgICBiaXJkc19jYXJkcyA9IHsKICAgICJjdXN0b21jYXJkcyI6IHsKICAgICAgICAib3B0aW9ucyI6IHsKICAgICAgICAgICJzZWFyY2hfZW5hYmxlZCI6IFRydWUsCiAgICAgICAgICAic2F2ZV9wb3NpdGlvbiI6IFRydWUKICAgICAgICB9LAoKICAgICAgICAibGF5b3V0IjogewogICAgICAgICAgICAidHlwZSI6ICJMaW5lYXJMYXlvdXQiLAogICAgICAgICAgICAib3JpZW50YXRpb24iOiAidmVydGljYWwiLAogICAgICAgICAgICAiaGVpZ2h0IjogIm1hdGNoX3BhcmVudCIsCiAgICAgICAgICAgICJ3aWR0aCI6ICJtYXRjaF9wYXJlbnQiLAogICAgICAgICAgICAid2VpZ2h0IjogIjAiLAogICAgICAgICAgICAiRWxlbWVudHMiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiTGluZWFyTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAib3JpZW50YXRpb24iOiAiaG9yaXpvbnRhbCIsCiAgICAgICAgICAgICAgICAgICAgImhlaWdodCI6ICJ3cmFwX2NvbnRlbnQiLAogICAgICAgICAgICAgICAgICAgICJ3aWR0aCI6ICJtYXRjaF9wYXJlbnQiLAogICAgICAgICAgICAgICAgICAgICJ3ZWlnaHQiOiAiMCIsCiAgICAgICAgICAgICAgICAgICAgIkVsZW1lbnRzIjogWwogICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAidHlwZSI6ICJQaWN0dXJlIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJWYWx1ZSI6ICJAYmlyZF9waWN0dXJlIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJUZXh0U2l6ZSI6ICIxNiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVGV4dENvbG9yIjogIiNEQjcwOTMiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIlRleHRCb2xkIjogVHJ1ZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJUZXh0SXRhbGljIjogRmFsc2UsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAid2lkdGgiOiAibWF0Y2hfcGFyZW50IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJoZWlnaHQiOiAid3JhcF9jb250ZW50IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ3ZWlnaHQiOiAxCiAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ0eXBlIjogIkxpbmVhckxheW91dCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAib3JpZW50YXRpb24iOiAidmVydGljYWwiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgImhlaWdodCI6ICJ3cmFwX2NvbnRlbnQiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIndpZHRoIjogIm1hdGNoX3BhcmVudCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAid2VpZ2h0IjogIjEiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIkVsZW1lbnRzIjogWwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiVGV4dFZpZXciLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVmFsdWUiOiAiQGJpcmRfbmFtZSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJOb1JlZnJlc2giOiBGYWxzZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIlRleHRTaXplIjogIjE2IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIlRleHRDb2xvciI6ICIjMDAwMDAwIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgImdyYXZpdHlfaG9yaXpvbnRhbCI6ICJsZWZ0IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiVGV4dFZpZXciLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVmFsdWUiOiAiQGJpcmRfY29sb3IiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiTm9SZWZyZXNoIjogRmFsc2UsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJUZXh0U2l6ZSI6ICIxNiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJUZXh0Q29sb3IiOiAiIzAwMDAwMCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJncmF2aXR5X2hvcml6b250YWwiOiAibGVmdCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICBdCiAgICAgICAgfQogICAgICAgIH0KICAgIH0KCiAgICBiaXJkc19jYXJkc1siY3VzdG9tY2FyZHMiXVsiY2FyZHNkYXRhIl0gPSBbXQoKICAgICPQn9C+0LvRg9GH0LDQtdC80Ysg0LjQtyBKU09OINCy0YHQtdGFINC00L7RgdGC0YPQv9C90YvRhSDQv9GC0LjRhgogICAga2V5c19zdHIgPSBkYl9hbGxfYmlyZHMuZ2V0YWxsa2V5cygpCiAgICBrZXlzID0ganNvbi5sb2FkcyhzdHIoa2V5c19zdHIpLmVuY29kZSgidXRmLTgiKSkKICAgIGZvciBrZXkgaW4ga2V5czoKICAgICAgICBiaXJkID0gZ2V0X2JpcmRfZGF0YV9ieV9rZXkoa2V5PWtleSkKICAgICAgICBiaXJkWyJiaXJkX25hbWUiXSA9ICLQndCw0LfQstCw0L3QuNC1INC/0YLQuNGG0Ys6ICIgKyBrZXkKICAgICAgICBiaXJkWyJiaXJkX2NvbG9yIl0gPSAi0KbQstC10YIg0L/QtdGA0YzQtdCyINC/0YLQuNGG0Ys6ICIgKyBiaXJkLmdldCgiYmlyZF9jb2xvciIpCiAgICAgICAgYmlyZHNfY2FyZHNbImN1c3RvbWNhcmRzIl1bImNhcmRzZGF0YSJdLmFwcGVuZChiaXJkKQogICAgaGFzaE1hcC5wdXQoCiAgICAgICAgImNhcmRzYmlyZHMiLAogICAgICAgIGpzb24uZHVtcHMoYmlyZHNfY2FyZHMsIGVuc3VyZV9hc2NpaT1GYWxzZSkKICAgICkKICAgIHJldHVybiBoYXNoTWFwCgoKIyDQntCx0YDQsNCx0L7RgtGH0LjQutC4INC60L3QvtC/0L7QuiAKCiPQlNC+0LHQsNCy0LjRgtGMINC60L3QvtC/0LrRgyDQtNC+0LHQsNCy0LvQtdC90LjRjyDQv9GC0LjRhtGLCmRlZiBzaG93X2FkZF9iaXJkX3NjcmVlbihoYXNoTWFwOiBoYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSk6CiAgICAiIiIKICAgINCX0LDQv9GD0YHQuiDRjdC60YDQsNC90LAg0YEg0LTQvtCx0LDQstC70LXQvdC40LUg0L/RgtC40YbRiwogICAgIiIiCgogICAgaGFzaE1hcC5wdXQoIlNob3dTY3JlZW4iLCAi0JTQvtCx0LDQstC70LXQvdC40LUg0L/RgtC40YbRiyIpCiAgICByZXR1cm4gaGFzaE1hcAoKI9Cc0LXRgtC+0LQg0YHQvtC30LTQsNGC0Ywg0L/RgtC40YbRgwpkZWYgY3JlYXRlX2JpcmQoaGFzaE1hcDogaGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpOgogICAgIiIiCiAgICDQodC+0LfQtNCw0L3QuNC1INC/0YLQuNGG0YsKICAgICIiIgoKICAgIGJpcmRfbmFtZSA9IGhhc2hNYXAuZ2V0KCJiaXJkX25hbWUiKQogICAgaWYgZGJfYWxsX2JpcmRzLmdldChiaXJkX25hbWUpOgogICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICLQn9GC0LjRhtCwINGBINC00LDQvdC90YvQvCDQvdCw0LfQstCw0L3QuNC10Lwg0YPQttC1INCx0LDQt9C1LiIpCiAgICAgICAgcmV0dXJuIGhhc2hNYXAKCiAgICBiaXJkX2NvbG9yID0gaGFzaE1hcC5nZXQoImJpcmRfY29sb3IiKQoKICAgIGlmIGJpcmRfbmFtZSA9PSAiIiBvciBiaXJkX2NvbG9yID09ICIiOgogICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICLQktCy0LXQtNC40YLQtSDQstGB0LUg0LfQvdCw0YfQtdC90LjRjyDQv9C+0LvQtdC5IikKICAgICAgICByZXR1cm4gaGFzaE1hcAoKICAgIGJpcmRfZGF0YSA9IHsKICAgICAgICAiYmlyZF9jb2xvciI6IGJpcmRfY29sb3IsCiAgICAgICAgImJpcmRfcGljdHVyZSI6IGhhc2hNYXAuZ2V0KCJwaG90byIpLAogICAgfQogICAgZGJfYWxsX2JpcmRzLnB1dCgKICAgICAgICBiaXJkX25hbWUsCiAgICAgICAganNvbi5kdW1wcyhiaXJkX2RhdGEsIGVuc3VyZV9hc2NpaT1GYWxzZSksCiAgICAgICAgVHJ1ZQogICAgKQoKICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsIGYi0J/RgtC40YbQsCB7YmlyZF9uYW1lfSDRg9GB0L/QtdGI0L3QviDRgdC+0LfQtNCw0L3QsC4iKQoKCiAgICByZXR1cm4gaGFzaE1hcAoKCmRlZiBnZXRfYmlyZF9kYXRhX2J5X2tleShrZXk6IHN0cikgLT4gZGljdDoKCgogICAgYmlyZF9kYXRhX3N0ciA9IGRiX2FsbF9iaXJkcy5nZXQoa2V5KQogICAgYmlyZF9kYXRhID0ganNvbi5sb2FkcyhiaXJkX2RhdGFfc3RyKQogICAgYmlyZCA9IHsKICAgICAgICAia2V5Ijoga2V5LAogICAgICAgICJiaXJkX25hbWUiOiBrZXksCiAgICAgICAgImJpcmRfY29sb3IiOiBiaXJkX2RhdGEuZ2V0KCJiaXJkX2NvbG9yIiksCiAgICAgICAgImJpcmRfcGljdHVyZSI6IGJpcmRfZGF0YS5nZXQoImJpcmRfcGljdHVyZSIpLAogICAgfQogICAgcmV0dXJuIGJpcmQKCgpkZWYgc2hvd19iaXJkX3NjcmVlbihoYXNoTWFwOiBoYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSk6CiAgICAiIiIKICAgINCf0L7QutCw0LfQsNGC0Ywg0LrQvtC90LrRgNC10YLQvdGD0Y4g0L/RgtC40YbRgyDQuNC3INGB0L/QuNGB0LrQsAogICAgIiIiCgogICAgaGFzaE1hcC5wdXQoIlNob3dTY3JlZW4iLCAi0J/RgtC40YbQsCIpCiAgICBiaXJkX25hbWUgPSBoYXNoTWFwLmdldCgic2VsZWN0ZWRfY2FyZF9rZXkiKQoKICAgIGJpcmRfZGF0YSA9IGdldF9iaXJkX2RhdGFfYnlfa2V5KGtleT1iaXJkX25hbWUpCgogICAgaGFzaE1hcC5wdXQoImJpcmRfbmFtZSIsIGJpcmRfZGF0YS5nZXQoImJpcmRfbmFtZSIpKQogICAgaGFzaE1hcC5wdXQoImJpcmRfY29sb3IiLCBiaXJkX2RhdGEuZ2V0KCJiaXJkX2NvbG9yIikpCiAgICBoYXNoTWFwLnB1dCgiYmlyZF9waWN0dXJlIiwgYmlyZF9kYXRhLmdldCgiYmlyZF9waWN0dXJlIikpCgogICAgcmV0dXJuIGhhc2hNYXAKCgoKCgoKCgoK",
+        "RunPython": true,
+        "PyFiles": [
+            {
+                "PyFileKey": "",
+                "PyFileData": "ZnJvbSB0eXBpbmcgaW1wb3J0IFVuaW9uCiNodHRwczovL3VpdHh0LnJlYWR0aGVkb2NzLmlvL3J1L2xhdGVzdC9ub19zcWwuaHRtbApjbGFzcyBEQjoKICAgIGRlZiBnZXQoc2VsZiwga2V5OiBzdHIpIC0+IHN0cjoKICAgICAgICAiIiIKICAgICAgICDQn9C+0LvRg9GH0LXQvdC40LUg0LfQvdCw0YfQtdC90LjRjyDQv9C+INC60LvRjtGH0YMKICAgICAgICAiIiIKICAgICAgICBwYXNzCgogICAgZGVmIHB1dChzZWxmLCBrZXk6IHN0ciwgdmFsdWU6IFVuaW9uW3N0ciwgYm9vbCwgaW50XSwgcmVnaXN0ZXI6IGJvb2wpOgogICAgICAgICIiIgogICAgICAgINCf0L7QvNC10YnQtdC90LjQtSDQt9C90LDRh9C10L3QuNGPINCyINGD0LrQsNC30LDQvdC90YvQuSDQutC70Y7RhwogICAgICAgICIiIgogICAgICAgIHBhc3MKCiAgICBkZWYgZGVsZXRlKHNlbGYsIGtleTogc3RyKToKICAgICAgICAiIiIKICAgICAgICDQo9C00LDQu9C10L3QuNC1INC60LvRjtGH0LAKICAgICAgICAiIiIKICAgICAgICBwYXNzCgogICAgZGVmIGdldGFsbGtleXMoc2VsZikgLT4gc3RyOgogICAgICAgICIiIgogICAgICAgINCf0L7Qu9GD0YfQtdC90LjQtSDQstGB0LXRhSDQutC70Y7Rh9C10Lkg0LHQsNC30Ysg0LIg0LLQuNC00LUg0YHRgtGA0L7QutC4INGE0L7RgNC80LDRgtCwIEpTT04t0LzQsNGB0YHQuNCy0LAg0YHRgtGA0L7QugogICAgICAgICIiIgogICAgICAgIHBhc3M="
+            },
+            {
+                "PyFileKey": "hashMap",
+                "PyFileData": "ZnJvbSBydS50cmF2ZWxmb29kLnNpbXBsZV91aSBpbXBvcnQgTm9TUUwgYXMgbm9DbGFzcwpjbGFzcyBoYXNoTWFwOgogICAgZGVmIGdldChzZWxmLCBrZXk6IHN0cikgLT4gc3RyOgogICAgICAgICIiIgogICAgICAgINCf0L7Qu9GD0YfQtdC90LjQtSDQt9C90LDRh9C10L3QuNGPINC40LcgaGFzaE1hcAogICAgICAgICIiIgogICAgICAgIHBhc3MKCiAgICBkZWYgcHV0KHNlbGYsIGtleTogc3RyLCB2YWx1ZTogc3RyKToKICAgICAgICAiIiIKICAgICAgICDQktC90LXRgdC10L3QuNC1INC30L3QsNGH0LXQvdC40Y8g0LIgaGFzaE1hcAogICAgICAgICIiIgogICAgICAgIHBhc3MKCiAgICBkZWYgY29udGFpbnNLZXkoc2VsZiwga2V5OiBzdHIpIC0+IGJvb2w6CiAgICAgICAgIiIiCiAgICAgICAg0J/RgNC+0LLQtdGA0LrQsCDQvdCwINCy0YXQvtC20LTQtdC90LjQtSDQutC70Y7Rh9CwINCyINGB0LvQvtCy0LDRgNGMCiAgICAgICAgIiIiCiAgICAgICAgcGFzcwoKICAgIGRlZiByZW1vdmUoc2VsZiwga2V5OiBzdHIpOgogICAgICAgICIiIgogICAgICAgINCj0LTQsNC70LXQvdC40LUg0LrQu9GO0YfQsCDQuNC3INGB0LvQvtCy0LDRgNGPCiAgICAgICAgIiIiCiAgICAgICAgcGFzcw=="
+            },
+            {
+                "PyFileKey": "db",
+                "PyFileData": "ZnJvbSB0eXBpbmcgaW1wb3J0IFVuaW9uCiNodHRwczovL3VpdHh0LnJlYWR0aGVkb2NzLmlvL3J1L2xhdGVzdC9ub19zcWwuaHRtbApjbGFzcyBEQjoKICAgIGRlZiBnZXQoc2VsZiwga2V5OiBzdHIpIC0+IHN0cjoKICAgICAgICAiIiIKICAgICAgICDQn9C+0LvRg9GH0LXQvdC40LUg0LfQvdCw0YfQtdC90LjRjyDQv9C+INC60LvRjtGH0YMKICAgICAgICAiIiIKICAgICAgICBwYXNzCgogICAgZGVmIHB1dChzZWxmLCBrZXk6IHN0ciwgdmFsdWU6IFVuaW9uW3N0ciwgYm9vbCwgaW50XSwgcmVnaXN0ZXI6IGJvb2wpOgogICAgICAgICIiIgogICAgICAgINCf0L7QvNC10YnQtdC90LjQtSDQt9C90LDRh9C10L3QuNGPINCyINGD0LrQsNC30LDQvdC90YvQuSDQutC70Y7RhwogICAgICAgICIiIgogICAgICAgIHBhc3MKCiAgICBkZWYgZGVsZXRlKHNlbGYsIGtleTogc3RyKToKICAgICAgICAiIiIKICAgICAgICDQo9C00LDQu9C10L3QuNC1INC60LvRjtGH0LAKICAgICAgICAiIiIKICAgICAgICBwYXNzCgogICAgZGVmIGdldGFsbGtleXMoc2VsZikgLT4gc3RyOgogICAgICAgICIiIgogICAgICAgINCf0L7Qu9GD0YfQtdC90LjQtSDQstGB0LXRhSDQutC70Y7Rh9C10Lkg0LHQsNC30Ysg0LIg0LLQuNC00LUg0YHRgtGA0L7QutC4INGE0L7RgNC80LDRgtCwIEpTT04t0LzQsNGB0YHQuNCy0LAg0YHRgtGA0L7QugogICAgICAgICIiIgogICAgICAgIHBhc3M="
+            }
+        ]
+    }
+}
